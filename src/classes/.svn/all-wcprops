@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/8/trunk/src/classes
+END
+FluentHTML.cls
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/7/trunk/src/classes/FluentHTML.cls
+END
+FluentHTMLTest.cls
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/8/trunk/src/classes/FluentHTMLTest.cls
+END
+HTMLEncoder.cls
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/6/trunk/src/classes/HTMLEncoder.cls
+END
+HTMLEncoderTest.cls
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/6/trunk/src/classes/HTMLEncoderTest.cls
+END
+FluentHTML.cls-meta.xml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/2/trunk/src/classes/FluentHTML.cls-meta.xml
+END
+FluentHTMLTest.cls-meta.xml
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/2/trunk/src/classes/FluentHTMLTest.cls-meta.xml
+END
+HTMLEncoder.cls-meta.xml
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/2/trunk/src/classes/HTMLEncoder.cls-meta.xml
+END
+HTMLEncoderTest.cls-meta.xml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/6/trunk/src/classes/HTMLEncoderTest.cls-meta.xml
+END
