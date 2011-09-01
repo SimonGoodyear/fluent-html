@@ -18,9 +18,9 @@ The class implements a [fluent style interface](http://en.wikipedia.org/wiki/Flu
 
 To generate the following HTML:
 
-    <div>;
-        <a> href="http://www.google.co.uk">Search</a>;
-    </div>;
+    <div>
+        <a> href="http://www.google.co.uk">Search</a>
+    </div>
     
 All you need to do in code is:
 
