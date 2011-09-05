@@ -24,13 +24,13 @@ To generate the following HTML:
     
 All you need to do in code is:
 
-    new FluentHTML().div().a('http://www.google.co.uk','Search');
+    new FluentHTML().div().a('http://www.google.co.uk','Search').render();
 
 It's all fairly intuitive and there are couple more exaples on my [blog](http://smgoodyear.com/2011/06/16/generating-html-from-within-apex/)
 
 ### What's still missing?
 
-At the minute the library is very small and only contains the most basic HTML elements.  The first priority for the project is to expand this to include all valid HTML 5 elements.  The next step is to provide overrides for each of the elements to provide shortcuts to set the most commonly used attributes directly from the method rather than having to add an attribute map.
+At the minute the library is very small and only contains the most basic HTML elements.  The first priority for the project is to expand this to include all valid HTML 5 elements.  The next step is to provide overrides for each of the elements to provide shortcuts to set the most commonly used attributes directly from the method rather than having to add an attribute map.  And then to standardise the parameter names and order for all elements to make using the class more intuitive;
 
 ### Who's contributed to this?
 
