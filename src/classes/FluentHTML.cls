@@ -30,6 +30,71 @@ public class FluentHTML {
         addTextNode(node, text);
         return this;
     }
+    
+    /** abbr tag
+    *	http://
+    */
+    public FluentHTML abbr( string id, string title, string text, Map<string,string> attrs ){
+        DOM.Xmlnode node = root.addChildElement('abbr', null, null);
+        assignAttribute(node, 'id', id);
+        assignAttribute(node, 'title', title);
+        mapAttributes(node, attrs);
+        addTextNode(node, text);
+    	return this;
+    }
+    
+    /** address
+    */
+    public FluentHTML address( string id, string text ){
+        return address(id, text, null, null);        
+    }
+    public FluentHTML address( string id, string text, FluentHTML innerHTML ){
+        return address(id, text, innerHTML, null);       
+    }
+    public FluentHTML address( string id, string text, FluentHTML innerHTML, Map<string,string> attrs ){
+        return container('address', id, text, innerHTML, attrs);  
+    }
+    
+    /** article
+    */
+    public FluentHTML article( string id, string text ){
+        return article(id, text, null, null);        
+    }
+    public FluentHTML article( string id, string text, FluentHTML innerHTML ){
+        return article(id, text, innerHTML, null);       
+    }
+    public FluentHTML article( string id, string text, FluentHTML innerHTML, Map<string,string> attrs ){
+        return container('article', id, text, innerHTML, attrs);  
+    }   
+    
+    /** Aside
+    */
+    public FluentHTML aside( string id, string text ){
+        return aside(id, text, null, null);        
+    }
+    public FluentHTML aside( string id, string text, FluentHTML innerHTML ){
+        return aside(id, text, innerHTML, null);       
+    }
+    public FluentHTML aside( string id, string text, FluentHTML innerHTML, Map<string,string> attrs ){
+        return container('aside', id, text, innerHTML, attrs);  
+    }
+
+	/** audio
+	*/    
+    public FluentHTML audio( string id, Map<string,string> attrs, string text, List<SourceFactory> children ){
+ 	   DOM.Xmlnode node = root.addChildElement('audio', null, null);
+        assignAttribute(node, 'id', id);
+        mapAttributes(node, attrs);
+        for( SourceFactory child : children)
+        	addChild(node, child.render());
+        
+        return this;
+    }
+    
+    
+    
+    
+    
 
     /** Line break
     */
@@ -189,9 +254,9 @@ public class FluentHTML {
         return node;
     }
     
-    public class LIFactory{
+    public class liFactory{
         private string rendered = '';
-        public LIFactory li( string text ){
+        public liFactory li( string text ){
             rendered += '<li>' + text + '</li>';
             return this;
         }
@@ -200,10 +265,10 @@ public class FluentHTML {
         }
     }
     
-    public class TRFactory{
+    public class trFactory{
         private string rendered = '';
         
-        public TRFactory tr( Map<string,string> attrs, TDFactory tds ){
+        public trFactory tr( Map<string,string> attrs, TDFactory tds ){
             String attrTemp = '';
             if( attrs != null ){
                 for( string attr : attrs.keySet() ){
@@ -220,10 +285,10 @@ public class FluentHTML {
         }
     }
     
-    public class TDFactory{
+    public class tdFactory{
         private string rendered = '';
     
-        public TDFactory td( string text, Map<string,string> attrs, FluentHTML innerHTML){
+        public tdFactory td( string text, Map<string,string> attrs, FluentHTML innerHTML){
             String attrTemp = '';
             if( attrs != null ){
                 for( string attr : attrs.keySet() ){
@@ -239,5 +304,45 @@ public class FluentHTML {
             return rendered;
         }
     }
+
+   public class areaFactory{
+        private string rendered = '';
     
+        public areaFactory area(Map<string,string> attrs){
+            String attrTemp = '';
+            if( attrs != null ){
+                for( string attr : attrs.keySet() ){
+                    attrTemp += attr + '="' + attrs.get(attr) + '" ';
+                }
+                attrTemp = attrTemp.substring(0, attrTemp.length()-1);
+            }
+            rendered += '<area ' + attrTemp + '></area>';
+            return this;
+        }
+
+        public string render(){
+            return rendered;
+        }
+    }    
+
+   public class sourceFactory{
+        private string rendered = '';
+    
+        public sourceFactory source(Map<string,string> attrs){
+            String attrTemp = '';
+            if( attrs != null ){
+                for( string attr : attrs.keySet() ){
+                    attrTemp += attr + '="' + attrs.get(attr) + '" ';
+                }
+                attrTemp = attrTemp.substring(0, attrTemp.length()-1);
+            }
+            rendered += '<source ' + attrTemp + '></source>';
+            return this;
+        }
+
+        public string render(){
+            return rendered;
+        }
+    } 
+   
 }
