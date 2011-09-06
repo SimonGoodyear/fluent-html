@@ -104,6 +104,73 @@ private class FluentHTMLTest {
 	              
 		System.assertEquals('<table id="id" attr="111"><tr rowid="r1"><td colid="c1">test</td></tr></table>', output);
     } 
-                                                  
+
+	private static testMethod void abbr(){
+		string output = new FluentHTML()
+							.abbr('id1', 'the title', 'some text', null)
+							.render();
+							
+		system.assertEquals('<abbr id="id1" title="the title">some text</abbr>', output);
+	}                                
+                                
+	private static testMethod void address(){
+		string output = new FluentHTML()
+							.address('id1', 'some inner text')
+							.render();
+							
+		system.assertEquals('<address id="id1">some inner text</address>', output);
+	}
+	
+	private static testMethod void address_withinner(){
+		string output = new FluentHTML()
+							.address('id1', null, 
+								new FluentHTML().br())
+							.render();
+							
+		system.assertEquals('<address id="id1"><br /></address>', output);
+	}                                                  
     
+    private static testMethod void article(){
+    	string output = new FluentHTML()
+    						.article('id1', 'some text')
+    						.render();
+    						
+    	system.assertEquals('<article id="id1">some text</article>', output);
+    } 
+
+    private static testMethod void article_withinner(){
+    	string output = new FluentHTML()
+    						.article('id1', null,
+    							new FluentHTML().br())
+    						.render();
+    						
+    	system.assertEquals('<article id="id1"><br /></article>', output);
+    } 
+    
+    private static testMethod void aside(){
+    	string output = new FluentHTML()
+    						.aside('id1', 'some text')
+    						.render();
+    						
+    	system.assertEquals('<aside id="id1">some text</aside>', output);
+    } 
+    
+    private static testMethod void aside_withinner(){
+    	string output = new FluentHTML()
+    						.aside('id1', null,
+    							new FluentHTML().br())
+    						.render();
+    						
+    	system.assertEquals('<aside id="id1"><br /></aside>', output);
+    } 
+    
+    private static testMethod void audio(){
+    	string output = new FluentHTML()
+    						.audio('id1', null, 'some text', 
+    							new FluentHTML.sourceFactory().source(new Map<string,string>{'src'=>'yyy'}))
+    						.render();
+    	
+    	system.assertEquals('<audio id="id1">some text<source src="yyy"></source></audio>', output);
+    } 
+
 }

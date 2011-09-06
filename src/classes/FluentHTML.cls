@@ -81,12 +81,12 @@ public class FluentHTML {
 
 	/** audio
 	*/    
-    public FluentHTML audio( string id, Map<string,string> attrs, string text, List<SourceFactory> children ){
+    public FluentHTML audio( string id, Map<string,string> attrs, string text, SourceFactory children ){
  	   DOM.Xmlnode node = root.addChildElement('audio', null, null);
         assignAttribute(node, 'id', id);
         mapAttributes(node, attrs);
-        for( SourceFactory child : children)
-        	addChild(node, child.render());
+        addTextNode(node, text);
+    	addChild(node, children.render());
         
         return this;
     }
