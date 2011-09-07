@@ -172,5 +172,54 @@ private class FluentHTMLTest {
     	
     	system.assertEquals('<audio id="id1">some text<source src="yyy"></source></audio>', output);
     } 
+    
+    private static testMethod void b_plain(){
+    	string output = new FluentHTML()
+    						.b('some text')
+    						.render();
+    	
+    	system.assertEquals('<b>some text</b>', output);
+    } 
+  
+    private static testMethod void b_attrs(){
+    	string output = new FluentHTML()
+    						.b('id1', 'some text', null)
+    						.render();
+    	
+    	system.assertEquals('<b id="id1">some text</b>', output);
+    } 
+  
+    private static testMethod void bdo(){
+    	string output = new FluentHTML()
+    						.bdo('id1', 'some text', null)
+    						.render();
+    	
+    	system.assertEquals('<bdo id="id1">some text</bdo>', output);
+    }    
 
+    private static testMethod void blockquote(){
+    	string output = new FluentHTML()
+    						.blockquote('id1', 'some text')
+    						.render();
+    						
+    	system.assertEquals('<blockquote id="id1">some text</blockquote>', output);
+    } 
+    
+    private static testMethod void blockquote_withinner(){
+    	string output = new FluentHTML()
+    						.blockquote('id1', null,
+    							new FluentHTML().br())
+    						.render();
+    						
+    	system.assertEquals('<blockquote id="id1"><br /></blockquote>', output);
+    }     
+  
+    private static testMethod void br_attrs(){
+    	string output = new FluentHTML()
+    						.br('id1', null)
+    						.render();
+    	
+    	system.assertEquals('<br id="id1" />', output);
+    }
+    
 }

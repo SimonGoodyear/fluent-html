@@ -91,18 +91,57 @@ public class FluentHTML {
         return this;
     }
     
-    
-    
-    
-    
+    /** b tag
+    */
+    public FluentHTML b( string text ){
+        DOM.Xmlnode node = root.addChildElement('b', null, null);
+        addTextNode(node, text);
+    	return this;
+    }
+    public FluentHTML b( string id, string text, Map<string,string> attrs ){
+        DOM.Xmlnode node = root.addChildElement('b', null, null);
+        assignAttribute(node, 'id', id);
+        mapAttributes(node, attrs);
+        addTextNode(node, text);
+    	return this;
+    }
+  
+    /** bdo tag
+    */
+    public FluentHTML bdo( string id, string text, Map<string,string> attrs ){
+        DOM.Xmlnode node = root.addChildElement('bdo', null, null);
+        assignAttribute(node, 'id', id);
+        mapAttributes(node, attrs);
+        addTextNode(node, text);
+    	return this;
+    }  
 
+    /** Blockquote
+    */
+    public FluentHTML blockquote( string id, string text ){
+        return blockquote(id, text, null, null);        
+    }
+    public FluentHTML blockquote( string id, string text, FluentHTML innerHTML ){
+        return blockquote(id, text, innerHTML, null);       
+    }
+    public FluentHTML blockquote( string id, string text, FluentHTML innerHTML, Map<string,string> attrs ){
+        return container('blockquote', id, text, innerHTML, attrs);  
+    }
+   
+    
     /** Line break
     */
     public FluentHTML br(){
         root.addChildElement('br', null, null);
         return this;
     }
-
+    public FluentHTML br( string id, Map<string,string> attrs ){
+        DOM.Xmlnode node = root.addChildElement('br', null, null);
+        assignAttribute(node, 'id', id);
+        mapAttributes(node, attrs);
+    	return this;
+    }
+    
     /** Ordered list
     */
     public FluentHTML ol( string id, LIFactory items ){
